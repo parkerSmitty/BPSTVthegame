@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://l1ceeh6o3xf"]
+[gd_scene load_steps=7 format=3 uid="uid://l1ceeh6o3xf"]
 
 [ext_resource type="Script" uid="uid://bdnhe7ub4767j" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://3o610hn7whjc" path="res://Items/Inventory.gd" id="2_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://cxxqu21phsaxt" path="res://Items/inventory_ui.tscn" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -9,6 +11,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_v0iea"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 15
 script = ExtResource("1_v0iea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -28,5 +31,14 @@ mesh = SubResource("BoxMesh_v0iea")
 [node name="camera_mount" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
-[node name="Camera3D" type="Camera3D" parent="camera_mount"]
+[node name="Camera3D" type="Camera3D" parent="camera_mount" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1, 2.7)
+current = true
+
+[node name="InventoryNode" type="Node" parent="."]
+script = ExtResource("2_cvnsp")
+
+[node name="hand" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.427479, 1, -0.424091)
+
+[node name="Control" parent="hand" instance=ExtResource("3_6t5aa")]
