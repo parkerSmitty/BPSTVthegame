@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://con4qyge7wl6v"]
+[gd_scene load_steps=3 format=3 uid="uid://pjwon2x6bw1n"]
 
 [sub_resource type="Theme" id="Theme_rdlan"]
 
@@ -41,5 +41,6 @@ theme = SubResource("Theme_v8wg1")
 text = "Test your might?"
 
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
