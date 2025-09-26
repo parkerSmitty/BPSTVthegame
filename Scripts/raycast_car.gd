@@ -89,7 +89,7 @@ func _basic_steering_rotation(wheel: RaycastWheel, delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	#entering car process 
-	if interact and can_enter_car: 
+	if interact and can_enter_car:
 		entering_car()
 	if in_car:
 		player_ref.global_transform.origin = driver_seat.global_transform.origin
