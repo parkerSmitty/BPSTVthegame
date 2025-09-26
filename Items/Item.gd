@@ -11,3 +11,5 @@ class_name Item
 @export var max_stack: int = 1
 @export var equip_scene: PackedScene
 @export var data: Dictionary = {}
+
+#weapon specific

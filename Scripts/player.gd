@@ -2,8 +2,9 @@ extends CharacterBody3D
 @onready var camera_mount: Node3D = $camera_mount
 @onready var visuals = $visuals
 @onready var camera: Camera3D = $camera_mount/Camera3D
-@onready var inventory_node: Inventory = $InventoryNode
-
+#@onready var inventory_node: Inventory = $InventoryNode
+@onready var player_inventory: PlayerInventory = $Node
+var equipped_weapon: Node = null
 
 const SMOOTH_SPEED = 10.0
 
@@ -24,6 +25,9 @@ func _ready():
 	
 
 func _input(event):
+	if event.is_action_pressed("reload"):
+		if equipped_weapon and equipped_weapon.has_method("reload"):
+			equipped_weapon.reload(player_inventory)
 	if event.is_action_pressed("Interact"):
 		cast_ray_from_camera()
 	if Input.is_action_pressed("esc"):
@@ -91,6 +95,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-func get_inventory() -> Inventory:
-	return $InventoryNode
+func get_player_inventory() -> PlayerInventory:
+	return $Node
+#func get_inventory() -> Inventory:
+#	return $InventoryNode

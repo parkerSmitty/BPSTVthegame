@@ -17,4 +17,6 @@ data = {
 "\"damage\"": 10,
 "\"fire_rate\"": 0.5
 }
+has_ammo = true
+max_ammo = 15
 metadata/_custom_type_script = "uid://lvbqs6n38vsr"
